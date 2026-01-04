@@ -1,0 +1,112 @@
+header{
+    background-color: var(--color-bg-secondary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 101; /* con chóa đóm kkkk */
+}
+
+.header-container{
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img{
+    height: 65px;
+    border-radius: var(--radius-md);    
+}
+
+.nav-list{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.nav-item{
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    background-color: var(--color-bg-tertiary);
+    padding: 8px 12px;  
+    border-radius: var(--radius-md);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out; 
+}
+
+.nav-item:has(.nav-link.active){
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link{
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover{
+    color: var(--color-primary);
+}
+
+.nav-link.active{
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-btn{
+    height: 40px;
+    padding: 8px 16px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login-btn:hover{
+    background-color: var(--color-primary-dark);
+}
+
+.signup-btn{
+    height: 40px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.signup-btn:hover{
+    color: var(--color-text-inverse);
+    background-color: var(--color-primary-dark);
+}
