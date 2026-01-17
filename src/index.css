@@ -36,18 +36,19 @@
   --color-primary-dark: var(--color-primary-70);
   --color-primary-light: var(--color-primary-90);
   
-  --color-bg-primary: var(--color-white);
-  --color-bg-secondary: var(--color-light-99);
-  --color-bg-tertiary: var(--color-light-97);
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F5F7FA;
+  --color-bg-tertiary: #E8EBF0;
   
-  --color-text-primary: var(--color-dark-10);
-  --color-text-secondary: var(--color-dark-30);
-  --color-text-tertiary: var(--color-dark-50);
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #718096;
   --color-text-inverse: var(--color-white);
   
-  --color-border-light: var(--color-light-90);
-  --color-border-medium: var(--color-dark-70);
-  --color-border-dark: var(--color-dark-40);
+  --color-border: #D1D5DB;
+  --color-border-light: #E5E7EB;
+  --color-border-medium: #9CA3AF;
+  --color-border-dark: #6B7280;
 
   /* Status colors */
   --color-success: #10B981;
