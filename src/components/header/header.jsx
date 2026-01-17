@@ -34,9 +34,6 @@ const Header = () => {
                 <NavLink to="/courses" className="nav-link">Courses</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/about" className="nav-link">About Us</NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink to="/contact" className="nav-link">Contact</NavLink>
               </li>
             </ul>
@@ -57,9 +54,6 @@ const Header = () => {
               </li>
               <li className="mobile-nav-item">
                 <NavLink to="/courses" className="mobile-nav-link" onClick={closeMenu}>Courses</NavLink>
-              </li>
-              <li className="mobile-nav-item">
-                <NavLink to="/about" className="mobile-nav-link" onClick={closeMenu}>About Us</NavLink>
               </li>
               <li className="mobile-nav-item">
                 <NavLink to="/contact" className="mobile-nav-link" onClick={closeMenu}>Contact</NavLink>
