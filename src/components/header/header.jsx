@@ -1,17 +1,30 @@
 import "./header.css";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import logo from "../../assets/logo.webp";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header>
       <div className="header-container">
-        {/* logo */}
+        {/* logo and navigation */}
         <div className="header-left">
           <div className="logo">
             <img src={logo} alt="E-Learning Logo" />
           </div>
-          {/* navigation */}
+          
           <nav className="header-nav">
             <ul className="nav-list">
               <li className="nav-item">
@@ -29,7 +42,38 @@ const Header = () => {
             </ul>
           </nav>
         </div>
-        {/* btn-login */}
+
+        {/* hamburger button */}
+        <button className="hamburger-btn" onClick={toggleMenu} aria-label="Toggle menu">
+          <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+        </button>
+
+        {/* mobile menu */}
+        <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
+          <nav className="mobile-nav">
+            <ul className="mobile-nav-list">
+              <li className="mobile-nav-item">
+                <NavLink to="/" className="mobile-nav-link" onClick={closeMenu}>Home</NavLink>
+              </li>
+              <li className="mobile-nav-item">
+                <NavLink to="/courses" className="mobile-nav-link" onClick={closeMenu}>Courses</NavLink>
+              </li>
+              <li className="mobile-nav-item">
+                <NavLink to="/about" className="mobile-nav-link" onClick={closeMenu}>About Us</NavLink>
+              </li>
+              <li className="mobile-nav-item">
+                <NavLink to="/contact" className="mobile-nav-link" onClick={closeMenu}>Contact</NavLink>
+              </li>
+            </ul>
+          </nav>
+          
+          <div className="mobile-buttons">
+            <button className="signup-btn" onClick={closeMenu}>Sign Up</button>
+            <button className="login-btn" onClick={closeMenu}>Login</button>
+          </div>
+        </div>
+
+        {/* btn-login desktop */}
         <div className="header-right">
           <button className="signup-btn">Sign Up</button>
           <button className="login-btn">Login</button>

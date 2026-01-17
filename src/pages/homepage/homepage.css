@@ -5,11 +5,17 @@
 }
 
 .hero-section {
+    min-height: calc(100vh - 85px);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: var(--spacing-3xl) var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.hero-section-top{
+    margin: var(--spacing-lg)
 }
 
 .hero-section h1 {
@@ -53,7 +59,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
     width: 100%;
-    margin-top: var(--spacing-3xl);
+    margin-top: 8rem;
 }
 
 .category-card {
@@ -61,9 +67,15 @@
     padding: var(--spacing-xl);
     border: 2px solid var(--color-border);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 180px;
 }
 
 .category-card:hover {
@@ -86,8 +98,9 @@
 
 .benefits-section {
     padding: var(--spacing-3xl) var(--spacing-lg);
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-primary);
     text-align: center;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .benefits-section h2 {
@@ -121,11 +134,6 @@
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-.benefits-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-}
-
 .benefits-card h3 {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
@@ -139,3 +147,396 @@
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
 }
+
+/* Our Courses Section */
+.courses-section {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.courses-section h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.courses-section>p {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-3xl) auto;
+}
+
+.courses-cta {
+    margin-top: var(--spacing-2xl);
+}
+
+.view-all-button {
+    background-color: transparent;
+    color: var(--color-primary);
+    padding: 14px 32px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.view-all-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: var(--spacing-3xl) var(--spacing-lg) calc(var(--spacing-3xl) + var(--spacing-2xl)) var(--spacing-lg);
+    background-color: var(--color-bg-primary);
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.faq-section>p {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.faq-item {
+    background-color: var(--color-bg-primary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    text-align: left;
+}
+
+.faq-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item.active {
+    border-color: var(--color-primary);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.faq-question h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+    flex: 1;
+}
+
+.faq-icon {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal) ease-out, padding var(--transition-normal) ease-out;
+}
+
+.faq-answer.show {
+    max-height: 500px;
+    padding-top: var(--spacing-md);
+    transition: max-height var(--transition-normal) ease-in, padding var(--transition-normal) ease-in;
+}
+
+.faq-answer p {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+}
+
+/* Responsive Design */
+
+/* Large Desktop - 1440px */
+@media (max-width: 1440px) {
+    .homepage {
+        padding: 0 var(--spacing-md);
+    }
+}
+
+/* Desktop - 1280px */
+@media (max-width: 1280px) {
+    .hero-section h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero-section-categories {
+        gap: var(--spacing-md);
+        margin-top: 6rem;
+    }
+    
+    .category-card {
+        min-height: 160px;
+    }
+}
+
+/* Laptop - 1024px */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .hero-section h1 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .hero-section p {
+        font-size: var(--font-size-base);
+    }
+    
+    .hero-section-categories {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-md);
+        margin-top: 4rem;
+    }
+    
+    .category-card {
+        padding: var(--spacing-lg);
+        min-height: 150px;
+    }
+    
+    .category-card h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .category-card p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .benefits-section,
+    .courses-section,
+    .faq-section {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+    
+    .benefits-section h2,
+    .courses-section h2,
+    .faq-section h2 {
+        font-size: var(--font-size-2xl);
+    }
+}
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .hero-section h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .hero-section p {
+        font-size: var(--font-size-sm);
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero-section-categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+        margin-top: 3rem;
+    }
+    
+    .category-card {
+        padding: var(--spacing-md);
+        min-height: 140px;
+    }
+    
+    .benefits-section,
+    .courses-section,
+    .faq-section {
+        padding: var(--spacing-xl) var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .benefits-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .view-all-button {
+        width: 100%;
+        padding: 12px 24px;
+    }
+
+    .faq-question h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .faq-item {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Mobile Large - 640px */
+@media (max-width: 640px) {
+    .hero-section {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero-section h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero-section-top {
+        margin: var(--spacing-md);
+    }
+    
+    .hero-section-categories {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        margin-top: 2rem;
+    }
+    
+    .category-card {
+        padding: var(--spacing-md);
+        min-height: 120px;
+    }
+    
+    .category-card h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .category-card p {
+        font-size: var(--font-size-xs);
+    }
+    
+    .benefits-section h2,
+    .courses-section h2,
+    .faq-section h2 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .benefits-section>p,
+    .courses-section>p,
+    .faq-section>p {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+    .hero-section {
+        padding: var(--spacing-md);
+    }
+    
+    .hero-section h1 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .hero-section p {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .cta-button {
+        padding: 8px 16px;
+        font-size: var(--font-size-xs);
+    }
+    
+    .hero-section-categories {
+        margin-top: var(--spacing-xl);
+    }
+    
+    .benefits-section,
+    .courses-section,
+    .faq-section {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .benefits-card,
+    .faq-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .faq-question h3 {
+        font-size: var(--font-size-sm);
+    }
+}
+
+/* Mobile Small - 375px */
+@media (max-width: 375px) {
+    .hero-section h1 {
+        font-size: var(--font-size-base);
+    }
+    
+    .category-card {
+        min-height: 100px;
+        padding: var(--spacing-sm);
+    }
+    
+    .benefits-section h2,
+    .courses-section h2,
+    .faq-section h2 {
+        font-size: var(--font-size-lg);
+    }
+}
+
