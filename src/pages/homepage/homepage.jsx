@@ -1,68 +1,24 @@
 import "./homepage.css";
 import CardCourse from "../../components/card-course/card-course";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAllCourses } from "../../services/courseService";
 
 const Home = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const courses = [
-    {
-      id: 1,
-      thumbnail: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500",
-      title: "Web Design Fundamentals",
-      description: "Learn the fundamentals of web design, including HTML, CSS, and responsive design principles. Develop the skills to create visually appealing and user-friendly websites.",
-      duration: "4 Weeks",
-      level: "Beginner",
-      instructor: "John Smith"
-    },
-    {
-      id: 2,
-      thumbnail: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500",
-      title: "UI/UX Design",
-      description: "Master the art of creating intuitive user interfaces (UI) and enhancing user experiences (UX). Learn design principles, wireframing, prototyping, and usability testing techniques.",
-      duration: "6 Weeks",
-      level: "Intermediate",
-      instructor: "Emily Johnson"
-    },
-    {
-      id: 3,
-      thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500",
-      title: "Mobile App Development",
-      description: "Dive into the world of mobile app development. Learn to build native iOS and Android applications using industry-standard tools and frameworks.",
-      duration: "8 Weeks",
-      level: "Intermediate",
-      instructor: "David Brown"
-    },
-    {
-      id: 4,
-      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500",
-      title: "Graphic Design for Beginners",
-      description: "Discover the fundamentals of graphic design, including typography, color theory, layout design, and image manipulation techniques. Create visually stunning designs.",
-      duration: "10 Weeks",
-      level: "Beginner",
-      instructor: "Sarah Lee"
-    },
-    {
-      id: 5,
-      thumbnail: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500",
-      title: "Front-End Web Development",
-      description: "Become proficient in front-end web development. Learn HTML, CSS, JavaScript, and popular frameworks like React to build interactive and responsive websites.",
-      duration: "10 Weeks",
-      level: "Intermediate",
-      instructor: "Michael Chen"
-    },
-    {
-      id: 6,
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500",
-      title: "Advanced JavaScript",
-      description: "Take your JavaScript skills to the next level. Explore advanced concepts including ES6+, async programming, design patterns, and performance optimization.",
-      duration: "6 Weeks",
-      level: "Advanced",
-      instructor: "Jennifer White"
-    }
-  ];
+  useEffect(() => {
+    const fetchCourses = async () => {
+      setLoading(true);
+      const data = await getAllCourses();
+      setCourses(data.slice(0, 6));
+      setLoading(false);
+    };
+    fetchCourses();
+  }, []);
 
   const faqs = [
     {
@@ -163,19 +119,23 @@ const Home = () => {
       <section className="courses-section">
         <h2>Our Popular Courses</h2>
         <p>Explore our most popular courses and start learning today.</p>
-        <div className="courses-grid">
-          {courses.map((course) => (
-            <CardCourse
-              key={course.id}
-              thumbnail={course.thumbnail}
-              title={course.title}
-              description={course.description}
-              duration={course.duration}
-              level={course.level}
-              instructor={course.instructor}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <div className="loading-message">Loading courses...</div>
+        ) : (
+          <div className="courses-grid">
+            {courses.map((course) => (
+              <CardCourse
+                key={course.id}
+                thumbnail={course.thumbnail}
+                title={course.title}
+                description={course.description}
+                duration={course.duration}
+                level={course.level}
+                instructor={course.instructor}
+              />
+            ))}
+          </div>
+        )}
         <div className="courses-cta">
           <button className="view-all-button" onClick={() => navigate('/courses')}>View All Courses</button>
         </div>
