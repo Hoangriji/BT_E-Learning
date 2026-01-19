@@ -24,7 +24,7 @@ const Header = () => {
           <div className="logo">
             <img src={logo} alt="E-Learning Logo" />
           </div>
-          
+
           <nav className="header-nav">
             <ul className="nav-list">
               <li className="nav-item">
@@ -34,7 +34,7 @@ const Header = () => {
                 <NavLink to="/courses" className="nav-link">Courses</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                <NavLink to="/register" className="nav-link">Register</NavLink>
               </li>
             </ul>
           </nav>
@@ -56,21 +56,29 @@ const Header = () => {
                 <NavLink to="/courses" className="mobile-nav-link" onClick={closeMenu}>Courses</NavLink>
               </li>
               <li className="mobile-nav-item">
-                <NavLink to="/contact" className="mobile-nav-link" onClick={closeMenu}>Contact</NavLink>
+                <NavLink to="/register" className="mobile-nav-link" onClick={closeMenu}>Register</NavLink>
               </li>
             </ul>
           </nav>
-          
+
           <div className="mobile-buttons">
-            <button className="signup-btn" onClick={closeMenu}>Sign Up</button>
-            <button className="login-btn" onClick={closeMenu}>Login</button>
+            <NavLink to="/sign-up">
+              <button className="signup-btn" onClick={closeMenu}>Sign Up</button>
+            </NavLink>
+            <NavLink to="/login">
+              <button className="login-btn" onClick={closeMenu}>Login</button>
+            </NavLink>
           </div>
         </div>
 
         {/* btn-login desktop */}
         <div className="header-right">
-          <button className="signup-btn">Sign Up</button>
-          <button className="login-btn">Login</button>
+          <NavLink to="/sign-up">
+            <button className="signup-btn">Sign Up</button>
+          </NavLink>
+          <NavLink to="/login">
+            <button className="login-btn">Login</button>
+          </NavLink>
         </div>
       </div>
     </header>
