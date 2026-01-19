@@ -11,7 +11,7 @@ function App() {
       <Header />
       
       {/* Phần nội dung thay đổi dựa theo URL */}
-      <div className="content" style={{ padding: '20px' }}>
+      <div className="content" style={{ padding: '0 20px 20px 20px' }}>
         <Routes>
           {/* path="/" là trang mặc định */}
           <Route path="/" element={<Home />} />

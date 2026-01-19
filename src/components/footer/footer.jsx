@@ -10,7 +10,9 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-left">
-          <img src={logo} alt="E-Learning Logo" className="footer-logo" />
+          <NavLink to="/">
+            <img src={logo} alt="E-Learning Logo" className="footer-logo" />
+          </NavLink>
           <div className="footer-left-contacts">
             <p>
               <FontAwesomeIcon icon={faEnvelope} /> contact@elearning.com

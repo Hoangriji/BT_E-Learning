@@ -1,6 +1,12 @@
 .footer-logo{
     height: 65px;
     border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
 }
 
 footer {
@@ -9,6 +15,7 @@ footer {
     align-items: center;
     justify-content: center;    
     overflow: hidden;
+    border-top: 2px solid var(--color-dark-10);
 }
 
 .footer-container{
@@ -92,6 +99,10 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 1440px) {
+    .footer-container{
+        padding: 2rem 2rem;
+    }
+
     .footer-right{
         gap: 8rem;
         padding-right: 1.5rem;
@@ -99,6 +110,10 @@ footer {
 }
 
 @media (max-width: 1280px) {
+    .footer-container{
+        padding: 2rem 1.5rem;
+    }
+
     .footer-right{
         gap: 6rem;
     }

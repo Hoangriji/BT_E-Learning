@@ -1,18 +1,21 @@
 import "./courses.css";
 import CourseDetailCard from "../../components/course-detail-card/course-detail-card";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { getAllCourses } from "../../services/courseService";
 
 const Courses = () => {
+  const location = useLocation();
+  const initialCategory = location.state?.selectedCategory || "All";
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedLevel, setSelectedLevel] = useState("All");
   const [allCourses, setAllCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const categories = ["All", "Web Development", "Design", "Mobile Development", "Data Science", "Marketing", "Cloud Computing"];
+  const categories = ["All", "Web Development", "Data Science", "Graphic Design", "Mobile Development", "Game Development"];
   const levels = ["All", "Beginner", "Intermediate", "Advanced"];
 
   useEffect(() => {
@@ -90,9 +93,6 @@ const Courses = () => {
         <div className="courses-results">
           <div className="results-header">
             <h2>All Courses</h2>
-            <p className="results-count">
-              Showing {filteredCourses.length} of {allCourses.length} courses
-            </p>
           </div>
 
           {loading ? (

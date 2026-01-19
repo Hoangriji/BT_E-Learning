@@ -57,6 +57,10 @@ const Home = () => {
     setActiveQuestion(activeQuestion === id ? null : id);
   };
 
+  const handleCategoryClick = (category) => {
+    navigate('/courses', { state: { selectedCategory: category } });
+  };
+
   return (
     <div className="homepage">
       <section className="hero-section">
@@ -69,23 +73,23 @@ const Home = () => {
         </div>
 
         <div className="hero-section-categories">
-          <div className="category-card">
+          <div className="category-card" onClick={() => handleCategoryClick('Web Development')}>
             <h3>Web Development</h3>
             <p>Learn to build modern web applications.</p>
           </div>
-          <div className="category-card">
+          <div className="category-card" onClick={() => handleCategoryClick('Data Science')}>
             <h3>Data Science</h3>
             <p>Dive into data analysis and machine learning.</p>
           </div>
-          <div className="category-card">
+          <div className="category-card" onClick={() => handleCategoryClick('Graphic Design')}>
             <h3>Graphic Design</h3>
             <p>Master the art of visual communication.</p>
           </div>
-          <div className="category-card">
+          <div className="category-card" onClick={() => handleCategoryClick('Mobile Development')}>
             <h3>Mobile Development</h3>
             <p>Build applications for mobile devices.</p>
           </div>
-          <div className="category-card">
+          <div className="category-card" onClick={() => handleCategoryClick('Game Development')}>
             <h3>Game Development</h3>
             <p>Create immersive gaming experiences.</p>
           </div>
