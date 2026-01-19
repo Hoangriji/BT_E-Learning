@@ -136,12 +136,6 @@
     margin: 0;
 }
 
-.results-count {
-    font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
-    margin: 0;
-}
-
 .courses-list-grid {
     display: flex;
     flex-direction: column;
@@ -262,9 +256,6 @@
         font-size: var(--font-size-lg);
     }
     
-    .results-count {
-        font-size: var(--font-size-sm);
-    }
 }
 
 /* Mobile Large - 640px */

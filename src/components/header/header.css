@@ -27,6 +27,13 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    transition: transform var(--transition-normal);
+    text-decoration: none;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .logo img {

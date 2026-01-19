@@ -21,9 +21,9 @@ const Header = () => {
       <div className="header-container">
         {/* logo and navigation */}
         <div className="header-left">
-          <div className="logo">
+          <NavLink to="/" className="logo">
             <img src={logo} alt="E-Learning Logo" />
-          </div>
+          </NavLink>
 
           <nav className="header-nav">
             <ul className="nav-list">

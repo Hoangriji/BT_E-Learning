@@ -11,13 +11,11 @@ function App() {
   return (
     <>
       <Header />
-
       {/* Phần nội dung thay đổi dựa theo URL */}
-
       <Routes>
         {/* path="/" là trang mặc định */}
         <Route path="/" element={
-          <div className="content" style={{ padding: '20px' }}>
+          <div className="content" style={{ padding: '0 20px 20px 20px' }}>
             <Home />
           </div>
         } />
@@ -34,7 +32,7 @@ function App() {
         {/* Route bắt lỗi 404 nếu nhập link linh tinh */}
         <Route path="*" element={<h2>404 - Không tìm thấy trang!</h2>} />
       </Routes>
-
+                                 
       <Footer />
     </>
   )
