@@ -1,0 +1,318 @@
+/* Layout chung */
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+  padding: 40px;
+  font-family: 'Inter', sans-serif;
+  gap: 50px;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  max-width: 500px;
+}
+
+/* Cột trái */
+.left-section h1 {
+  font-size: 34px;
+  margin-bottom: 15px;
+  color: var(--color-text-primary);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.testimonial-card {
+  background: var(--color-white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.quote {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.testimonial-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.avatar {
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.read-more {
+  background: var(--color-light-95);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navigation-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.nav-btn {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Cột phải - Form */
+.form-container {
+  background: var(--color-white);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: var(--color-text-tertiary);
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 10px;
+  background: var(--color-light-99);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.checkbox-group a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+form .signup-btn {
+  width: 100%;
+  padding: 15px;
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-md);
+  transition: 0.3s ease-in-out;
+  height: 49px;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-light-97);
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 50px;
+}
+
+.google-btn img {
+  height: 100%;
+  width: auto;
+}
+
+.footer-link {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.footer-link a {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.divider {
+  margin: 20px 0;
+  position: relative;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.divider span {
+  position: absolute;
+  top: -10px;
+  background: var(--color-white);
+  padding: 0 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.error-message {
+  background-color: #fee;
+  color: #c33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid #fcc;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    gap: 30px;
+  }
+
+  .left-section h1 {
+    font-size: 28px;
+  }
+
+  .form-container {
+    padding: 35px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-section {
+    display: none;
+  }
+
+  .right-section {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .left-section h1 {
+    font-size: 26px;
+  }
+
+  .form-container {
+    padding: 30px;
+  }
+
+  .form-container h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .left-section h1 {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  .quote {
+    font-size: 14px;
+  }
+
+  .form-container {
+    padding: 25px 20px;
+  }
+
+  .form-container h2 {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+
+  .input-group input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .checkbox-group {
+    font-size: 13px;
+  }
+
+  form .signup-btn {
+    font-size: 15px;
+    padding: 13px;
+  }
+
+  .footer-link {
+    font-size: 13px;
+  }
+}

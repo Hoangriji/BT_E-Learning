@@ -1,4 +1,4 @@
-header{
+header {
     background-color: var(--color-bg-secondary);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -6,7 +6,7 @@ header{
     z-index: 101;
 }
 
-.header-container{
+.header-container {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
@@ -17,13 +17,13 @@ header{
     position: relative;
 }
 
-.header-left{
+.header-left {
     display: flex;
     align-items: center;
     gap: var(--spacing-2xl);
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -36,9 +36,9 @@ header{
     transform: scale(1.05);
 }
 
-.logo img{
+.logo img {
     height: 65px;
-    border-radius: var(--radius-md);    
+    border-radius: var(--radius-md);
 }
 
 .hamburger-btn {
@@ -61,7 +61,7 @@ header{
     display: none;
 }
 
-.nav-list{
+.nav-list {
     display: flex;
     gap: 20px;
     list-style: none;
@@ -69,36 +69,36 @@ header{
     padding: 0;
 }
 
-.nav-item{
+.nav-item {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     background-color: var(--color-bg-tertiary);
-    padding: 8px 12px;  
+    padding: 8px 12px;
     border-radius: var(--radius-md);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-    transition: .3s ease-in-out; 
+    transition: .3s ease-in-out;
 }
 
-.nav-item:has(.nav-link.active){
+.nav-item:has(.nav-link.active) {
     box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.nav-link{
+.nav-link {
     color: var(--color-text-primary);
     text-decoration: none;
     transition: 0.3s ease-in-out;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: var(--color-primary);
 }
 
-.nav-link.active{
+.nav-link.active {
     color: var(--color-primary);
     font-weight: var(--font-weight-semibold);
 }
 
-.header-right{
+.header-right {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -108,7 +108,7 @@ header{
     display: none;
 }
 
-.login-btn{
+.login-btn {
     height: 40px;
     padding: 8px 16px;
     background-color: var(--color-primary);
@@ -121,23 +121,24 @@ header{
     transition: 0.3s ease-in-out;
 }
 
-.login-btn:hover{
+.login-btn:hover {
     background-color: var(--color-primary-dark);
 }
 
-.signup-btn{
+.signup-btn {
     height: 40px;
     padding: 8px 16px;
-    background-color: transparent;
-    border: 2px solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
     border-radius: var(--radius-md);
     font-size: var(--font-size-base);
-    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
     cursor: pointer;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
-.signup-btn:hover{
+.signup-btn:hover {
     color: var(--color-text-inverse);
     background-color: var(--color-primary-dark);
 }
@@ -156,11 +157,11 @@ header{
     .header-container {
         padding: 10px 30px;
     }
-    
+
     .header-left {
         gap: 30px;
     }
-    
+
     .nav-list {
         gap: 15px;
     }
@@ -171,20 +172,20 @@ header{
     .header-container {
         padding: 10px 25px;
     }
-    
+
     .header-left {
         gap: 25px;
     }
-    
+
     .nav-list {
         gap: 12px;
     }
-    
+
     .nav-item {
         padding: 6px 10px;
         font-size: var(--font-size-sm);
     }
-    
+
     .logo img {
         height: 55px;
     }
@@ -195,11 +196,11 @@ header{
     .hamburger-btn {
         display: block;
     }
-    
+
     .header-nav {
         display: none;
     }
-    
+
     .mobile-menu {
         display: block;
         position: fixed;
@@ -214,11 +215,11 @@ header{
         z-index: 102;
         overflow-y: auto;
     }
-    
+
     .mobile-menu.active {
         right: 0;
     }
-    
+
     .mobile-nav-list {
         display: flex;
         flex-direction: column;
@@ -227,7 +228,7 @@ header{
         margin: 0 0 30px 0;
         padding: 0;
     }
-    
+
     .mobile-nav-item {
         font-size: var(--font-size-base);
         font-weight: var(--font-weight-medium);
@@ -238,36 +239,36 @@ header{
         transition: .3s ease-in-out;
         text-align: center;
     }
-    
-    .mobile-nav-item:has(.mobile-nav-link.active){
+
+    .mobile-nav-item:has(.mobile-nav-link.active) {
         box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .mobile-nav-link {
         color: var(--color-text-primary);
         text-decoration: none;
         transition: 0.3s ease-in-out;
     }
-    
+
     .mobile-nav-link:hover {
         color: var(--color-primary);
     }
-    
+
     .mobile-nav-link.active {
         color: var(--color-primary);
         font-weight: var(--font-weight-semibold);
     }
-    
+
     .header-right {
         display: none;
     }
-    
+
     .mobile-buttons {
         display: flex;
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .mobile-buttons .login-btn,
     .mobile-buttons .signup-btn {
         width: 100%;
@@ -280,11 +281,11 @@ header{
     .header-container {
         padding: 10px 20px;
     }
-    
+
     .logo img {
         height: 50px;
     }
-    
+
     .mobile-menu {
         width: 250px;
         padding: 90px 25px 25px;
@@ -296,11 +297,11 @@ header{
     .header-container {
         padding: 8px 15px;
     }
-    
+
     .logo img {
         height: 45px;
     }
-    
+
     .mobile-menu {
         width: 100%;
         max-width: 280px;
@@ -313,7 +314,7 @@ header{
     .header-container {
         padding: 8px 12px;
     }
-    
+
     .logo img {
         height: 40px;
     }
