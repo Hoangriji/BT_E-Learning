@@ -19,15 +19,15 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Đăng ký khóa học:', formData);
+    console.log('Course registration:', formData);
   };
 
   return (
     <div className="register-container">
       <div className="register-header">
-        <h1>Đăng Ký Khóa Học</h1>
+        <h1>Course Registration</h1>
         <p>
-          Điền thông tin của bạn để đăng ký tham gia khóa học. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.
+          Fill in your information to register for the course. We will contact you as soon as possible.
         </p>
       </div>
 
@@ -35,11 +35,11 @@ function Register() {
         <div className="register-form-section">
           <form className="register-form" onSubmit={handleSubmit}>
             <div className="form-group full-width">
-              <label>Họ và Tên</label>
+              <label>Full Name</label>
               <input 
                 type="text" 
                 name="fullName"
-                placeholder="Nhập họ và tên" 
+                placeholder="Enter your full name" 
                 value={formData.fullName}
                 onChange={handleChange}
                 required
@@ -51,7 +51,7 @@ function Register() {
               <input 
                 type="email" 
                 name="email"
-                placeholder="Nhập email" 
+                placeholder="Enter your email" 
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -59,11 +59,11 @@ function Register() {
             </div>
 
             <div className="form-group full-width">
-              <label>Số Điện Thoại</label>
+              <label>Phone Number</label>
               <input 
                 type="tel" 
                 name="phone"
-                placeholder="Nhập số điện thoại" 
+                placeholder="Enter your phone number" 
                 value={formData.phone}
                 onChange={handleChange}
                 required
@@ -71,11 +71,11 @@ function Register() {
             </div>
 
             <div className="form-group full-width">
-              <label>Khóa Học Quan Tâm</label>
+              <label>Course of Interest</label>
               <input 
                 type="text" 
                 name="course"
-                placeholder="Nhập tên khóa học" 
+                placeholder="Enter course name" 
                 value={formData.course}
                 onChange={handleChange}
                 required
@@ -83,10 +83,10 @@ function Register() {
             </div>
 
             <div className="form-group full-width">
-              <label>Lời Nhắn</label>
+              <label>Message</label>
               <textarea 
                 name="message"
-                placeholder="Nhập lời nhắn của bạn" 
+                placeholder="Enter your message" 
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
@@ -94,7 +94,7 @@ function Register() {
             </div>
 
             <div className="form-submit">
-              <button type="submit" className="btn-send">Gửi Đăng Ký</button>
+              <button type="submit" className="btn-send">Submit Registration</button>
             </div>
           </form>
         </div>
