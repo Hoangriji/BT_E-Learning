@@ -9,7 +9,7 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const header = document.querySelector(".header-container");
+    // const header = document.querySelector(".header-container");
     const footer = document.querySelector(".footer-container");
     const footer1 = document.querySelector("footer");
     // if (header) header.style.display = "none";

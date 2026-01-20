@@ -1,11 +1,11 @@
 /* Layout chung */
 .container {
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 87px);
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg-secondary);
-  padding: 40px;
+  padding: 0 40px;
   font-family: 'Inter', sans-serif;
   gap: 50px;
 }
