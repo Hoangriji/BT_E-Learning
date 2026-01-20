@@ -103,6 +103,7 @@ const Courses = () => {
                 filteredCourses.map((course) => (
                   <CourseDetailCard
                     key={course.id}
+                    id={course.id}
                     title={course.title}
                     description={course.description}
                     duration={course.duration}

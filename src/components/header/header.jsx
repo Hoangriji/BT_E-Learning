@@ -91,9 +91,6 @@ const Header = () => {
               <li className="nav-item">
                 <NavLink to="/courses" className="nav-link">Courses</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/register" className="nav-link">Register</NavLink>
-              </li>
             </ul>
           </nav>
         </div>
@@ -112,9 +109,6 @@ const Header = () => {
               </li>
               <li className="mobile-nav-item">
                 <NavLink to="/courses" className="mobile-nav-link" onClick={closeMenu}>Courses</NavLink>
-              </li>
-              <li className="mobile-nav-item">
-                <NavLink to="/register" className="mobile-nav-link" onClick={closeMenu}>Register</NavLink>
               </li>
             </ul>
           </nav>
