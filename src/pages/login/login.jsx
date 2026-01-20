@@ -1,9 +1,12 @@
 import './login.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { loginUser } from '../../services/authService';
 
 function Login() {
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const header = document.querySelector(".header-container");
@@ -19,31 +22,54 @@ function Login() {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    // Lấy dữ liệu từ form
     const formData = new FormData(e.target);
     const email = formData.get('email');
     const password = formData.get('password');
 
+    // Kiểm tra dữ liệu nhập vào
     if (!email) {
       setError('Email is required');
+      setLoading(false);
       return;
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError('Email is invalid');
+      setLoading(false);
       return;
     }
     if (!password) {
       setError('Password is required');
+      setLoading(false);
       return;
     }
     if (password.length < 6) {
       setError('Password must be at least 6 characters');
+      setLoading(false);
       return;
     }
 
-    setError('');
-    console.log('Form submitted:', Object.fromEntries(formData));
+    try {
+      // Đăng nhập: giải mã password từ Firestore và so sánh
+      // Sau đó tạo token đã mã hóa và lưu vào localStorage
+      const result = await loginUser(email, password);
+
+      console.log('Đăng nhập thành công:', result);
+      alert(`Chào mừng trở lại, ${result.fullName}!`);
+      
+      // Chuyển đến trang chủ
+      navigate('/');
+    } catch (error) {
+      console.error('Đăng nhập thất bại:', error);
+      setError(error.message || 'Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -120,7 +146,9 @@ function Login() {
                 <label htmlFor="remember">Remember Me</label>
               </div>
 
-              <button type="submit" className="btn-login">Login</button>
+              <button type="submit" className="btn-login" disabled={loading}>
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
             </form>
 
             {/* <div className="separator">

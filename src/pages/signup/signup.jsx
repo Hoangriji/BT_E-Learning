@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './signup.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { registerUser } from '../../services/authService';
 
 function SignUp() {
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const header = document.querySelector(".header-container");
@@ -19,45 +22,74 @@ function SignUp() {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    // Lấy dữ liệu từ form
     const formData = new FormData(e.target);
     const fullName = formData.get('fullName');
     const email = formData.get('email');
     const password = formData.get('password');
     const terms = formData.get('terms');
 
+    // Kiểm tra dữ liệu nhập vào
     if (!fullName) {
       setError('Full name is required');
+      setLoading(false);
       return;
     }
-    if (!/^[a-zA-Z\s]+$/.test(fullName)) {
+    if (!/^[\p{L}\s]+$/u.test(fullName)) {
       setError('Name cannot contain special characters or numbers');
+      setLoading(false);
       return;
     }
     if (!email) {
       setError('Email is required');
+      setLoading(false);
       return;
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
       setError('Email is invalid');
+      setLoading(false);
       return;
     }
     if (!password) {
       setError('Password is required');
+      setLoading(false);
       return;
     }
     if (password.length < 6) {
       setError('Password must be at least 6 characters');
+      setLoading(false);
       return;
     }
     if (!terms) {
       setError('You must agree to the terms');
+      setLoading(false);
       return;
     }
 
-    setError('');
-    console.log('Form submitted:', Object.fromEntries(formData));
+    try {
+      // Đăng ký user và lưu mật khẩu đã mã hóa vào Firestore
+      const result = await registerUser({
+        fullName,
+        email,
+        password,
+      });
+
+      console.log('Đăng ký thành công:', result);
+      alert('Đăng ký thành công! Vui lòng đăng nhập.');
+      
+      // Chuyển đến trang đăng nhập
+      navigate('/login');
+    } catch (error) {
+      console.error('Đăng ký thất bại:', error);
+      setError(error.message || 'Đăng ký thất bại. Vui lòng thử lại.');
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="container">
@@ -139,7 +171,9 @@ function SignUp() {
               </label>
             </div>
 
-            <button type="submit" className="signup-btn">Sign Up</button>
+            <button type="submit" className="signup-btn" disabled={loading}>
+              {loading ? 'Signing Up...' : 'Sign Up'}
+            </button>
           </form>
 
           {/* <div className="divider">
