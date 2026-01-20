@@ -62,8 +62,9 @@ function Login() {
       console.log('Đăng nhập thành công:', result);
       alert(`Chào mừng trở lại, ${result.fullName}!`);
       
-      // Chuyển đến trang chủ
+      // Chuyển đến trang chủ và reload để cập nhật header
       navigate('/');
+      window.location.reload();
     } catch (error) {
       console.error('Đăng nhập thất bại:', error);
       setError(error.message || 'Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.');
