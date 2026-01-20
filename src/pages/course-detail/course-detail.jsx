@@ -21,6 +21,10 @@ function CourseDetail() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchCourse = async () => {
       setLoading(true);
       const courseData = await getCourseById(courseId);
