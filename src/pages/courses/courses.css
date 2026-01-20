@@ -304,7 +304,16 @@
         font-size: var(--font-size-xs);
     }
     
-    .search-input,
+    .search-icon {
+        left: 12px;
+        font-size: 14px;
+    }
+    
+    .search-input {
+        padding: 10px 10px 10px 38px;
+        font-size: var(--font-size-xs);
+    }
+    
     .filter-select {
         padding: 10px;
         font-size: var(--font-size-xs);

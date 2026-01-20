@@ -1,8 +1,10 @@
 import "./course-detail-card.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faSignal, faUser } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const CourseDetailCard = ({ 
+  id,
   title, 
   description, 
   duration, 
@@ -11,14 +13,36 @@ const CourseDetailCard = ({
   images,
   curriculum 
 }) => {
+  const navigate = useNavigate();
+
+  const handleViewCourse = () => {
+    if (id) {
+      navigate(`/courses/${id}`);
+    }
+  };
+
+  const handleCardClick = () => {
+    if (id) {
+      navigate(`/courses/${id}`);
+    }
+  };
+
   return (
-    <div className="course-detail-card">
+    <div className="course-detail-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       <div className="course-detail-header">
         <div className="course-detail-info">
           <h3 className="course-detail-title">{title}</h3>
           <p className="course-detail-description">{description}</p>
         </div>
-        <button className="view-course-button">View Course</button>
+        <button 
+          className="view-course-button" 
+          onClick={(e) => {
+            e.stopPropagation();
+            handleViewCourse();
+          }}
+        >
+          View Course
+        </button>
       </div>
 
       <div className="course-detail-images">

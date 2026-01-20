@@ -1,5 +1,4 @@
 import './App.css'
-import Register from './pages/contact/register.jsx';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/header/header.jsx';
 import Home from './pages/homepage/homepage.jsx';
@@ -7,6 +6,8 @@ import Courses from './pages/courses/courses.jsx';
 import Login from './pages/login/login.jsx';
 import Footer from './components/footer/footer.jsx';
 import Signup from './pages/signup/signup.jsx';
+import CourseDetail from './pages/course-detail/course-detail.jsx';
+
 function App() {
   return (
     <>
@@ -24,8 +25,8 @@ function App() {
             <Courses />
           </div>
         } />
+        <Route path="/courses/:courseId" element={<CourseDetail />} />
         
-        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
 

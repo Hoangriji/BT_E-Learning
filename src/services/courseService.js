@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
+import { collection, getDocs, query, where, orderBy, doc, getDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig.js';
 
 export async function getAllCourses() {
@@ -19,6 +19,43 @@ export async function getAllCourses() {
   } catch (error) {
     console.error('Error fetching courses:', error);
     return [];
+  }
+}
+
+export async function getCourseById(courseId) {
+  try {
+    const courseDoc = doc(db, 'courses', courseId);
+    const courseSnapshot = await getDoc(courseDoc);
+    
+    if (courseSnapshot.exists()) {
+      return {
+        id: courseSnapshot.id,
+        ...courseSnapshot.data()
+      };
+    } else {
+      console.error('Course not found');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching course:', error);
+    return null;
+  }
+}
+
+export async function saveCourseRegistration(registrationData) {
+  try {
+    const registrationsCollection = collection(db, 'course_registrations');
+    const docRef = await addDoc(registrationsCollection, {
+      ...registrationData,
+      createdAt: serverTimestamp(),
+      status: 'pending'
+    });
+    
+    console.log('Registration saved with ID:', docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error saving registration:', error);
+    throw error;
   }
 }
 

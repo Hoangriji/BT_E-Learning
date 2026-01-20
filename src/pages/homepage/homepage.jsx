@@ -130,6 +130,7 @@ const Home = () => {
             {courses.map((course) => (
               <CardCourse
                 key={course.id}
+                id={course.id}
                 thumbnail={course.thumbnail}
                 title={course.title}
                 description={course.description}
